@@ -6,7 +6,12 @@ class MessageWidget {
         this.open = false;
         this.initialize();
         this.injectStyles();
-        console.log(window);
+
+        const urlParams = new URLSearchParams(window.location.search);
+        const token = urlParams.get("token");
+
+        // Use the token in your application logic here
+        console.log("Token:", token);
     }
 
     position = "";
