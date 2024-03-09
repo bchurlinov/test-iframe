@@ -1,17 +1,14 @@
 import { CLOSE_ICON, MESSAGE_ICON, styles } from "./assets.js";
 
 class MessageWidget {
-    constructor(position = "bottom-right") {
-        this.position = this.getPosition(position);
+    constructor(token) {
+        this.position = this.getPosition("bottom-right");
         this.open = false;
+        this.token = token;
         this.initialize();
         this.injectStyles();
 
-        const urlParams = new URLSearchParams(window.location.search);
-        const token = urlParams.get("token");
-
-        // Use the token in your application logic here
-        console.log("Token:", token);
+        console.log("token >>", token);
     }
 
     position = "";
@@ -157,8 +154,4 @@ class MessageWidget {
     }
 }
 
-function initializeWidget() {
-    return new MessageWidget();
-}
-
-initializeWidget();
+window.MessageWidget = MessageWidget;
